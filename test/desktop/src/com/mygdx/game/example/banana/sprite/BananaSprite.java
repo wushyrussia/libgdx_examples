@@ -21,8 +21,8 @@ public class BananaSprite extends ApplicationAdapter {
     TextureAtlas textureAtlas;
 
     SpriteBatch batch;
-    OrthographicCamera camera;
     ExtendViewport viewport;
+    OrthographicCamera camera;
 
     Box2DDebugRenderer debugRenderer;
 
