@@ -34,15 +34,25 @@ public class MyCustomShapes {
         polygonShape.dispose();
     }
 
-    public static void createCircle(World world, Vector2 position, float radius) {
+    public static Body createCircle(World world, Vector2 position, float radius) {
         BodyDef def = new BodyDef();
         def.type = BodyDef.BodyType.DynamicBody;
         Body platform = world.createBody(def);
         platform.setTransform(position, 0);
 
+
         CircleShape shape = new CircleShape ();
         shape.setRadius(radius);
-        platform.createFixture(shape, 1);
+
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.friction = 1;
+        fixtureDef.density = 2;
+        fixtureDef.restitution = 1;
+        fixtureDef.shape = shape;
+        platform.createFixture(fixtureDef);
+
         shape.dispose();
+
+        return platform;
     }
 }
